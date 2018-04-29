@@ -3,7 +3,7 @@
 
 ### Sử dụng file cấu hình trong MySQL (Using Option Files)
 
-Hầu hết các chương trình MySQL có thể đọc các cấu hình (option) khởi động từ các file tùy chọn (file cấu hình). File cấu hình mang lại một phương pháp tiện lợi trong việc định rõ các cấu hình mà ta thường xuyên sử dụng. Điều này giúp chúng ta không phải nhập các cấu hình ấy vào dòng lệnh mỗi lần khởi chạy một chương trình.
+Hầu hết các chương trình MySQL có thể đọc các tùy chọn (option) khởi động từ các file tùy chọn (file cấu hình). File cấu hình mang lại một phương pháp tiện lợi trong việc định rõ các cấu hình mà ta thường xuyên sử dụng. Điều này giúp chúng ta không phải nhập các cấu hình ấy vào dòng lệnh mỗi lần khởi chạy một chương trình.
 
 Để xác định xem liệu một chương trình có đọc từ các file cấu hình hay không, hãy chạy nó với cấu hình `\--help`. (Đối với [**mysqld**][1], sử dụng [`\--verbose`][2] and [`\--help`][3].) Nếu chương trình có đọc từ các file cấu hình, kết quả từ cấu hình help cho ta biết về file mà nó đang tìm kiếm và các nhóm cấu hình nó nhận biết được.
 
@@ -23,10 +23,10 @@ Trên Windows, các chương trình MySQL đọc các cấu hình khởi động
 
 | Tên file                                                                                  | Ý nghĩa                                                       |  
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |  
-| ``%PROGRAMDATA%`MySQLMySQL Server 5.7my.ini`, ``%PROGRAMDATA%`MySQLMySQL Server 5.7my.cnf` | Toàn cục options                                                |  
-| ``%WINDIR%`my.ini`, ``%WINDIR%`my.cnf`                                                     | Toàn cục options                                                |  
-| `C:my.ini`, `C:my.cnf`                                                                     | Toàn cục options                                                |  
-| `_`BASEDIR`_my.ini`, `_`BASEDIR`_my.cnf`                                                   | Toàn cục options                                                |  
+| ``%PROGRAMDATA%`MySQLMySQL Server 5.7my.ini`, ``%PROGRAMDATA%`MySQLMySQL Server 5.7my.cnf` | Toàn cục                                                    |  
+| ``%WINDIR%`my.ini`, ``%WINDIR%`my.cnf`                                                     | Toàn cục                                                    |  
+| `C:my.ini`, `C:my.cnf`                                                                     | Toàn cục                                                    |  
+| `_`BASEDIR`_my.ini`, `_`BASEDIR`_my.cnf`                                                   | Toàn cục                                                    |  
 | `defaults-extra-file`                                                                      | File được chỉ định bởi [`\--defaults-extra-file`][8], nếu tồn tại |  
 | ``%APPDATA%`MySQL.mylogin.cnf`                                                             | cấu hình đường dẫn đăng nhập (chỉ cho client)                             |  
 
@@ -120,8 +120,6 @@ Nếu tên một nhóm cấu hình giống với tên chương trình, các cấ
 
 Nhóm `[client]` được đọc bởi tất cả các chương trình client có trong bản phân phối của MySQL (ngoại trừ **[mysqld**][1]). Để hiểu cách các chương trình client bên thứ 3 mà sử dụng C API có thể sử dụng file cấu hình, tham khảo tài liệu C API tại [Section 27.8.7.50, "mysql_options()"][16]. 
 
-The `[client]` group enables you to specify options that apply to all clients. For example, `[client]` is the appropriate group to use to specify the password for connecting to the server. (But make sure that the option file is accessible only by yourself, so that other people cannot discover your password.) Be sure not to put an option in the `[client]` group unless it is recognized by _all_ client programs that you use. Programs that do not understand the option quit after displaying an error message if you try to run them.
-
 Nhóm `[client]` cho phép bạn định rõ các cấu hình bạn muốn áp dụng cho tất cả các clients. Ví dụ, `[client]` là nhóm phù hợp để sử dụng để định rõ mật khẩu dùng trong việc kết nối tới server. (Hãy đảm bảo rằng file cấu hình chỉ có thể truy cập được bởi bạn, nhờ đó người khác sẽ không thể tìm ra mật khẩu của bạn.) Hãy đảm bảo bạn không chèn cấu hình nào vào trong nhóm `[client]` trừ khi nó được nhận biết bởi _tất cả_ các chương trình client mà bạn sử dụng. Các chương trình không hiểu cấu hình sẽ kết thúc sau khi hiển thị thông báo lỗi nếu bạn cố chạy chúng.
 
 Liệt kê các nhóm cấu hình có tính khái quát trước và các nhóm có tính chi tiết sau. Ví dụ, một nhóm `[client]` có tính khái quát hơn vì nó được đọc bởi tất cả các chương trình client, trong khi đó nhóm `[mysqldump]` chỉ được đọc bởi **[mysqldump**][17]. Cấu hình được định rõ sau này sẽ ghi đè lên các cấu hình trước đó, vì thế đặt các nhóm cấu hình theo thứ tự `[client]`, `[mysqldump]` sẽ cho phép cấu hình chi tiết **[mysqldump**][17] ghi đè lên cấu hình `[client]`.
@@ -197,5 +195,4 @@ Nếu `my.cnf` được xử lý bởi **[mysqld**][1], chỉ nhóm `[mysqld]` t
 Chỉ thị `!includedir` được xử lý tương tự ngoại trừ việc tất cả các file cấu hình trong thư mục sẽ được đọc.
 
 Nếu một file cấu hình chứa chỉ thị `!include` hoặc `!includedir`, các file được đặt tên bởi chỉ thị được xử lý bất cứ khi nào file cấu hình được xử lý, không kể chúng xuất hiện ở đâu trong file.
-
   
