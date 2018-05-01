@@ -23,10 +23,10 @@ Trên Windows, các chương trình MySQL đọc các cấu hình khởi động
 
 | Tên file                                                                                  | Ý nghĩa                                                       |  
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |  
-| ``%PROGRAMDATA%`MySQLMySQL Server 5.7my.ini`, ``%PROGRAMDATA%`MySQLMySQL Server 5.7my.cnf` | Toàn cục                                                    |  
-| ``%WINDIR%`my.ini`, ``%WINDIR%`my.cnf`                                                     | Toàn cục                                                    |  
-| `C:my.ini`, `C:my.cnf`                                                                     | Toàn cục                                                    |  
-| `_`BASEDIR`_my.ini`, `_`BASEDIR`_my.cnf`                                                   | Toàn cục                                                    |  
+| ``%PROGRAMDATA%`MySQLMySQL Server 5.7my.ini`, ``%PROGRAMDATA%`MySQLMySQL Server 5.7my.cnf` | Tùy chọn toàn cục                                                    |  
+| ``%WINDIR%`my.ini`, ``%WINDIR%`my.cnf`                                                     | Tùy chọn toàn cục                                                    |  
+| `C:my.ini`, `C:my.cnf`                                                                     | Tùy chọn toàn cục                                                    |  
+| `_`BASEDIR`_my.ini`, `_`BASEDIR`_my.cnf`                                                   | Tùy chọn toàn cục                                                    |  
 | `defaults-extra-file`                                                                      | File được chỉ định bởi [`\--defaults-extra-file`][8], nếu tồn tại |  
 | ``%APPDATA%`MySQL.mylogin.cnf`                                                             | cấu hình đường dẫn đăng nhập (chỉ cho client)                             |  
 
@@ -55,9 +55,9 @@ Trên nền tảng Unix, MySQL bỏ qua các file cấu hình mà ai cũng có t
 
 | Tên file                | Ý nghĩa                                                       |  
 | ----------------------- | ------------------------------------------------------------- |  
-| `/etc/my.cnf`           | Toàn cục                                                      |  
-| `/etc/mysql/my.cnf`     | Toàn cục                                                      |  
-| `_`SYSCONFDIR`_/my.cnf` | Toàn cục                                                      |  
+| `/etc/my.cnf`           | Tùy chọn toàn cục                                             |  
+| `/etc/mysql/my.cnf`     | Tùy chọn toàn cục                                             |  
+| `_`SYSCONFDIR`_/my.cnf` | Tùy chọn toàn cục                                             |  
 | `$MYSQL_HOME/my.cnf`    | Cấu hình cho đặc tả của server                                |  
 | `defaults-extra-file`   | File được định rõ bởi[`\--defaults-extra-file`][8]nếu tồn tại |  
 | `~/.my.cnf`             | Cấu hình cho đặc tả của user                                  |  
