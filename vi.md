@@ -1,7 +1,9 @@
 
 [Source](https://dev.mysql.com/doc/refman/5.7/en/option-files.html "Permalink to MySQL :: MySQL 5.7 Reference Manual :: 4.2.6 Using Option Files")
 
-### Sử dụng file cấu hình trong MySQL (Using Option Files)
+# MySQL :: MySQL 5.7 Reference Manual :: 4.2.6 Using Option Files
+
+### 4.2.6 Sử dụng file cấu hình
 
 Hầu hết các chương trình MySQL có thể đọc các tùy chọn (option) khởi động từ các file tùy chọn (file cấu hình). File cấu hình mang lại một phương pháp tiện lợi trong việc định rõ các cấu hình mà ta thường xuyên sử dụng. Điều này giúp chúng ta không phải nhập các cấu hình ấy vào dòng lệnh mỗi lần khởi chạy một chương trình.
 
